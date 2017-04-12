@@ -16,9 +16,9 @@ $ npm install --save storage-mock
 const mockedWindow = require('storage-mock');
 
 mockedWindow.addEventListener('storage', e => {
-	e.key // item-key
-	e.oldValue // null
-	e.newValue // item-value
+  e.key // item-key
+  e.oldValue // null
+  e.newValue // item-value
 });
 
 mockedWindow.localStorage.setItem('item-key', 'item-value');
