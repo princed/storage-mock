@@ -1,6 +1,6 @@
 {
   "name": "storage-mock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Web Storage API Mock with events support",
   "license": "MIT",
   "repository": "princed/storage-mock",
