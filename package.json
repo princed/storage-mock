@@ -1,0 +1,36 @@
+{
+  "name": "storage-mock",
+  "version": "1.0.0",
+  "description": "Web Storage API Mock with events support",
+  "license": "MIT",
+  "repository": "princed/storage-mock",
+  "author": {
+    "name": "Eugene Datsky",
+    "email": "eugene@datsky.ru"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "storage",
+    "web storage",
+    "mock",
+    "events"
+  ],
+  "dependencies": {
+    "event-target": "^0.1.0"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "sinon": "^2.1.0",
+    "xo": "^0.17.0"
+  }
+}
