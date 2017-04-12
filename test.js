@@ -86,6 +86,8 @@ test('should trigger events', t => {
 	localStorage.setItem('item-key', 'value');
 	clock.tick(100);
 	t.true(listener.calledTwice, 'not called after removing listener');
+
+	clock.restore();
 });
 
 test('should trigger events with proper data', t => {
@@ -123,6 +125,7 @@ test('should trigger events with proper data', t => {
 	}), 'proper data on removeItem');
 
 	window.removeEventListener('storage', listener);
+	clock.restore();
 });
 
 test('keys order', t => {
