@@ -1,7 +1,8 @@
 /* eslint-disable func-names */
-const EventTarget = require('event-target');
+var EventTarget = require('event-target');
 
-const {StorageEvent} = require('./event');
+var StorageEvent = require('./event').StorageEvent;
+var assign = Object.assign || require('object.assign');
 
 /**
  *  Create window as event target
@@ -11,23 +12,23 @@ Window.prototype.addEventListener = EventTarget.addEventListener;
 Window.prototype.removeEventListener = EventTarget.removeEventListener;
 Window.prototype.dispatchEvent = EventTarget.dispatchEvent;
 
-const window = new Window();
+var window = new Window();
 
 /**
  * Mocked storage (initially borrowed from https://github.com/azu/mock-localstorage)
  * @constructor
  */
 function MockedStorage() {
-	const storage = {};
+	var storage = {};
 
-	const defaultProps = {
+	var defaultProps = {
 		writable: false,
 		configurable: false,
 		enumerable: false
 	};
 
 	function dispatchEvent(key, value) {
-		const storageEvent = new StorageEvent('storage', {
+		var storageEvent = new StorageEvent('storage', {
 			key: key,
 			oldValue: storage[key] || null,
 			newValue: value,
@@ -39,7 +40,7 @@ function MockedStorage() {
 		}, 0);
 	}
 
-	Object.defineProperty(storage, 'getItem', Object.assign({
+	Object.defineProperty(storage, 'getItem', assign({
 		value: function getItem(key) {
 			if (arguments.length === 0) {
 				throw new TypeError('Failed to execute \'getItem\' on \'Storage\': 1 argument required, but only 0 present.');
@@ -48,7 +49,7 @@ function MockedStorage() {
 		}
 	}, defaultProps));
 
-	Object.defineProperty(storage, 'key', Object.assign({
+	Object.defineProperty(storage, 'key', assign({
 		value: function (keyId) {
 			if (arguments.length === 0) {
 				throw new TypeError('Failed to execute \'getItem\' on \'Storage\': 1 argument required, but only 0 present.');
@@ -58,10 +59,10 @@ function MockedStorage() {
 		}
 	}, defaultProps));
 
-	Object.defineProperty(storage, 'setItem', Object.assign({
+	Object.defineProperty(storage, 'setItem', assign({
 		value: function setItem(key, value) {
-			const stringKey = String(key);
-			const stringValue = String(value);
+			var stringKey = String(key);
+			var stringValue = String(value);
 
 			if (arguments.length <= 1) {
 				throw new TypeError('Failed to execute \'setItem\' on \'Storage\': 2 arguments required, but only ' + arguments.length + ' present.');
@@ -72,9 +73,9 @@ function MockedStorage() {
 		}
 	}, defaultProps));
 
-	Object.defineProperty(storage, 'removeItem', Object.assign({
+	Object.defineProperty(storage, 'removeItem', assign({
 		value: function removeItem(key) {
-			const stringKey = String(key);
+			var stringKey = String(key);
 
 			if (arguments.length === 0) {
 				throw new TypeError('Failed to execute \'removeItem\' on \'Storage\': 1 argument required, but only 0 present.');
@@ -93,7 +94,7 @@ function MockedStorage() {
 		enumerable: false
 	});
 
-	Object.defineProperty(storage, 'clear', Object.assign({
+	Object.defineProperty(storage, 'clear', assign({
 		value: function clear() {
 			Object.keys(storage).forEach(function (key) {
 				storage.removeItem(key);

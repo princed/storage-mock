@@ -27,7 +27,8 @@
     "events"
   ],
   "dependencies": {
-    "event-target": "^0.1.0"
+    "event-target": "^0.1.0",
+    "object.assign": "^4.0.4"
   },
   "devDependencies": {
     "ava": "^0.17.0",
