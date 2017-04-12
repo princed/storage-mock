@@ -1,3 +1,5 @@
+var assign = Object.assign || require('object.assign');
+
 /**
  * Basic Event
  * @param type
@@ -34,7 +36,7 @@ Event.prototype = {
  */
 function StorageEvent(type, customData, target) {
 	this.initEvent(type, false, false, target);
-	Object.assign(this, customData);
+	assign(this, customData);
 }
 
 StorageEvent.prototype = new Event();

@@ -1,8 +1,8 @@
 /* eslint-disable func-names */
 var EventTarget = require('event-target');
 
-var StorageEvent = require('./event').StorageEvent;
 var assign = Object.assign || require('object.assign');
+var StorageEvent = require('./event').StorageEvent;
 
 /**
  *  Create window as event target
