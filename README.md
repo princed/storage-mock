@@ -1,5 +1,7 @@
 # storage-mock [![Build Status](https://travis-ci.org/princed/storage-mock.svg?branch=master)](https://travis-ci.org/princed/storage-mock)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/princed/storage-mock.svg)](https://greenkeeper.io/)
+
 > Web Storage API Mock with events support
 
 
