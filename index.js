@@ -1,4 +1,5 @@
-/* eslint-disable func-names */
+/* eslint-disable func-names, func-name-matching */
+
 var EventTarget = require('event-target');
 
 var assign = Object.assign || require('object.assign');
