@@ -34,7 +34,7 @@
     "object.assign": "^4.0.4"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
+    "ava": "^0.22.0",
     "sinon": "^3.0.0",
     "xo": "^0.18.2"
   }
