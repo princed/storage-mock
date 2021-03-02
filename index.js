@@ -1,19 +1,11 @@
 /* eslint-disable func-names, func-name-matching */
 
-var EventTarget = require('event-target');
+var EventTarget = require('@ungap/event-target');
 
 var assign = Object.assign || require('object.assign');
 var StorageEvent = require('./event').StorageEvent;
 
-/**
- *  Create window as event target
- */
-function Window() {}
-Window.prototype.addEventListener = EventTarget.addEventListener;
-Window.prototype.removeEventListener = EventTarget.removeEventListener;
-Window.prototype.dispatchEvent = EventTarget.dispatchEvent;
-
-var window = new Window();
+var window = new EventTarget();
 
 /**
  * Mocked storage (initially borrowed from https://github.com/azu/mock-localstorage)

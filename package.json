@@ -30,7 +30,7 @@
     "events"
   ],
   "dependencies": {
-    "event-target": "^0.1.0",
+    "@ungap/event-target": "^0.2.2",
     "object.assign": "^4.0.4"
   },
   "devDependencies": {
