@@ -2,7 +2,6 @@
 
 var EventTarget = require('@ungap/event-target');
 
-var assign = Object.assign || require('object.assign');
 var StorageEvent = require('./event').StorageEvent;
 
 var window = new EventTarget();
@@ -33,7 +32,7 @@ function MockedStorage() {
 		}, 0);
 	}
 
-	Object.defineProperty(storage, 'getItem', assign({
+	Object.defineProperty(storage, 'getItem', Object.assign({
 		value: function getItem(key) {
 			if (arguments.length === 0) {
 				throw new TypeError('Failed to execute \'getItem\' on \'Storage\': 1 argument required, but only 0 present.');
@@ -42,7 +41,7 @@ function MockedStorage() {
 		}
 	}, defaultProps));
 
-	Object.defineProperty(storage, 'key', assign({
+	Object.defineProperty(storage, 'key', Object.assign({
 		value: function (keyId) {
 			if (arguments.length === 0) {
 				throw new TypeError('Failed to execute \'getItem\' on \'Storage\': 1 argument required, but only 0 present.');
@@ -52,7 +51,7 @@ function MockedStorage() {
 		}
 	}, defaultProps));
 
-	Object.defineProperty(storage, 'setItem', assign({
+	Object.defineProperty(storage, 'setItem', Object.assign({
 		value: function setItem(key, value) {
 			var stringKey = String(key);
 			var stringValue = String(value);
@@ -66,7 +65,7 @@ function MockedStorage() {
 		}
 	}, defaultProps));
 
-	Object.defineProperty(storage, 'removeItem', assign({
+	Object.defineProperty(storage, 'removeItem', Object.assign({
 		value: function removeItem(key) {
 			var stringKey = String(key);
 
@@ -87,7 +86,7 @@ function MockedStorage() {
 		enumerable: false
 	});
 
-	Object.defineProperty(storage, 'clear', assign({
+	Object.defineProperty(storage, 'clear', Object.assign({
 		value: function clear() {
 			Object.keys(storage).forEach(function (key) {
 				storage.removeItem(key);
