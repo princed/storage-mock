@@ -1,3 +1,4 @@
 language: node_js
-node_js:
-  - node
+# https://github.com/nodejs/ci-config-travis
+import:
+  - nodejs/ci-config-travis:lts/strict/gte-10.yml
