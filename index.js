@@ -1,10 +1,12 @@
+/* global window */
 /* eslint-disable func-names, func-name-matching */
 
-var EventTarget = require('@ungap/event-target');
+var eventTargetExports = require('@ungap/event-target');
+var StorageEvent = typeof window === 'object' && window.StorageEvent ? window.StorageEvent : require('./event').StorageEvent;
 
-var StorageEvent = require('./event').StorageEvent;
+var EventTarget = eventTargetExports.default || eventTargetExports;
 
-var window = new EventTarget();
+var target = new EventTarget();
 
 /**
  * Mocked storage (initially borrowed from https://github.com/azu/mock-localstorage)
@@ -28,7 +30,7 @@ function MockedStorage() {
 		});
 
 		setTimeout(function dispatchAsync() {
-			window.dispatchEvent(storageEvent);
+			target.dispatchEvent(storageEvent);
 		}, 0);
 	}
 
@@ -97,7 +99,7 @@ function MockedStorage() {
 	return storage;
 }
 
-window.localStorage = new MockedStorage();
-window.sessionStorage = new MockedStorage();
+target.localStorage = new MockedStorage();
+target.sessionStorage = new MockedStorage();
 
-module.exports = window;
+module.exports = target;
